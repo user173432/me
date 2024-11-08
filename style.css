@@ -1,0 +1,1013 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.loader {
+  width: 112px;
+  height: 112px;
+  margin: auto;
+  transform: translateY(250%);
+}
+
+.box1,
+.box2,
+.box3 {
+  border: 16px solid #2F2F2F;
+  box-sizing: border-box;
+  position: absolute;
+  display: block;
+}
+
+.box1 {
+  width: 112px;
+  height: 48px;
+  margin-top: 64px;
+  margin-left: 0px;
+  animation: abox1 4s 1s forwards ease-in-out infinite;
+}
+
+.box2 {
+  width: 48px;
+  height: 48px;
+  margin-top: 0px;
+  margin-left: 0px;
+  animation: abox2 4s 1s forwards ease-in-out infinite;
+}
+
+.box3 {
+  width: 48px;
+  height: 48px;
+  margin-top: 0px;
+  margin-left: 64px;
+  animation: abox3 4s 1s forwards ease-in-out infinite;
+}
+
+@keyframes abox1 {
+  0% {
+    width: 112px;
+    height: 48px;
+    margin-top: 64px;
+    margin-left: 0px;
+  }
+
+  12.5% {
+    width: 48px;
+    height: 48px;
+    margin-top: 64px;
+    margin-left: 0px;
+  }
+
+  25% {
+    width: 48px;
+    height: 48px;
+    margin-top: 64px;
+    margin-left: 0px;
+  }
+
+  37.5% {
+    width: 48px;
+    height: 48px;
+    margin-top: 64px;
+    margin-left: 0px;
+  }
+
+  50% {
+    width: 48px;
+    height: 48px;
+    margin-top: 64px;
+    margin-left: 0px;
+  }
+
+  62.5% {
+    width: 48px;
+    height: 48px;
+    margin-top: 64px;
+    margin-left: 0px;
+  }
+
+  75% {
+    width: 48px;
+    height: 112px;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
+  87.5% {
+    width: 48px;
+    height: 48px;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
+  100% {
+    width: 48px;
+    height: 48px;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+}
+
+@keyframes abox2 {
+  0% {
+    width: 48px;
+    height: 48px;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
+  12.5% {
+    width: 48px;
+    height: 48px;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
+  25% {
+    width: 48px;
+    height: 48px;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
+  37.5% {
+    width: 48px;
+    height: 48px;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
+  50% {
+    width: 112px;
+    height: 48px;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
+  62.5% {
+    width: 48px;
+    height: 48px;
+    margin-top: 0px;
+    margin-left: 64px;
+  }
+
+  75% {
+    width: 48px;
+    height: 48px;
+    margin-top: 0px;
+    margin-left: 64px;
+  }
+
+  87.5% {
+    width: 48px;
+    height: 48px;
+    margin-top: 0px;
+    margin-left: 64px;
+  }
+
+  100% {
+    width: 48px;
+    height: 48px;
+    margin-top: 0px;
+    margin-left: 64px;
+  }
+}
+
+@keyframes abox3 {
+  0% {
+    width: 48px;
+    height: 48px;
+    margin-top: 0px;
+    margin-left: 64px;
+  }
+
+  12.5% {
+    width: 48px;
+    height: 48px;
+    margin-top: 0px;
+    margin-left: 64px;
+  }
+
+  25% {
+    width: 48px;
+    height: 112px;
+    margin-top: 0px;
+    margin-left: 64px;
+  }
+
+  37.5% {
+    width: 48px;
+    height: 48px;
+    margin-top: 64px;
+    margin-left: 64px;
+  }
+
+  50% {
+    width: 48px;
+    height: 48px;
+    margin-top: 64px;
+    margin-left: 64px;
+  }
+
+  62.5% {
+    width: 48px;
+    height: 48px;
+    margin-top: 64px;
+    margin-left: 64px;
+  }
+
+  75% {
+    width: 48px;
+    height: 48px;
+    margin-top: 64px;
+    margin-left: 64px;
+  }
+
+  87.5% {
+    width: 48px;
+    height: 48px;
+    margin-top: 64px;
+    margin-left: 64px;
+  }
+
+  100% {
+    width: 112px;
+    height: 48px;
+    margin-top: 64px;
+    margin-left: 0px;
+  }
+}
+
+.logo>h1 {
+  font-family: Lexend;
+  margin-top: 0px;
+  margin-left: 4px;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  background: #E5E5E5;
+  position:sticky;
+}
+
+nav>ul {
+  max-width: 300px;
+  display: flex;
+  margin-top: 10px;
+}
+
+nav>ul>li {
+  list-style-type: none;
+  width: 300px;
+}
+
+nav>ul>li>a {
+  color: #3B3B3B;
+  text-decoration: none;
+  font-family: Lexend;
+}
+
+.Call {
+  margin-top: 8px;
+  margin-right: 6px;
+}
+
+.Call>a {
+  background: #7200FF;
+  padding: 2px 4px;
+  color: #EDEDED;
+  font-weight: 400;
+  font-size: 20px;
+  font-family: Lexend;
+  text-decoration: none;
+
+}
+
+.landing-text {
+  margin-left: 10px;
+  margin-top: -410px;
+}
+
+.landing-text>h4 {
+  font-family: lexend;
+}
+
+.landing-text>h1 {
+  font-family: lexend;
+
+  font-size: 50px;
+}
+
+.landing-text>h1>mark {
+  padding: 2.5px;
+  color: #FFFFFF;
+  background: #920EFF;
+}
+
+.landing-text>h2 {
+  font-family: lexend;
+  margin-top: 5px;
+}
+
+.landing-page {
+  border-bottom: 2px solid dimgray;
+  padding-bottom: 300px
+}
+
+#hiddenLinkImage {
+  transform: translateX(700px);
+  margin-top: -20px;
+  width: 500px;
+  height: 500px;
+}
+
+.playlist {
+  margin-top: 10px;
+
+  border-bottom: 2px solid dimgray;
+  height: 300px;
+}
+
+.playlist>h1 {
+  font-family: lexend;
+  margin-left: 10px;
+}
+
+.container {
+  margin-left: 10px;
+  margin-top: 10px;
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 20px;
+  max-width: 100%;
+  scroll-behavior: smooth;
+}
+
+.music-player-card {
+  width: 400px;
+  padding: 15px;
+  background: rgb(6, 0, 15);
+  background: linear-gradient(0deg, rgba(6, 0, 15, 1) 0%, rgba(161, 40, 255, 1) 100%);
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.track-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.track-info {
+  margin-left: 100px;
+  margin-top: -90px;
+  margin-bottom: 10px;
+}
+
+.track-name {
+  font-size: 35px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.track-artist {
+  font-size: 14px;
+  color: #aaa;
+  margin: 0;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.controls .material-icons {
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.controls .material-icons:hover {
+  color: #777;
+}
+
+.timeline-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.timeline {
+  width: 100%;
+  margin: 0 5px;
+}
+
+.time {
+  font-size: 12px;
+}
+
+    .f-m {
+      margin-top: 10px;
+      border-bottom: 2px solid dimgray;
+    }
+
+    .f-m > h1 {
+      margin-left: 10px;
+    }
+
+    .movie-container {
+      display: flex;
+      flex-direction: row; /* Aligns cards horizontally */
+      gap: 20px;      
+      overflow-x: auto; /* Enables horizontal scroll */
+      white-sace: nowrap; /* Prevents wrapping */
+      scroll-behavior: smooth; /* Smooth scrolling */
+      padding: 10px; /* Adds some padding around the container */
+      height: 480px; /* Fixed height for scrolling effect */
+    }
+
+    /* Movie Card Styles */
+    .movie-card {
+      position: relative;
+      min-width: 300px; /* Set a minimum width for the cards */
+      height: 450px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+      transition: transform 0.4s ease;
+      background-color: #1A1A1A;
+      flex-shrink: 0; /* Prevents the card from shrinking */
+    }
+
+    .movie-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Background Image with Overlay */
+    .movie-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      filter: brightness(0.7);
+    }
+
+    .movie-card:hover img {
+      transform: scale(1.2);
+      filter: brightness(0.5);
+    }
+
+    /* Gradient overlay effect */
+    .movie-overlay {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.8));
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    /* Movie Info Styles */
+    .movie-info {
+      position: relative;
+      bottom: 20px;
+      transition: all 0.3s ease;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    .movie-card:hover .movie-info {
+      opacity: 1;
+      max-height: 100%;
+    }
+
+    /* Movie Title and Details */
+    .movie-title {
+      font-size: 1.8em;
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .movie-type,
+    .movie-streaming {
+      font-size: 0.9em;
+      font-weight: 500;
+      opacity: 0.8;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    /* Streaming Platforms Icons */
+    .movie-streaming {
+      display: flex;
+      gap: 10px;
+    }
+
+    .movie-streaming img {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.3s ease;
+      filter: grayscale(1);
+    }
+
+    .movie-streaming img:hover {
+      transform: scale(1.2);
+      filter: grayscale(0);
+    }
+
+    /* Description */
+    .movie-description {
+      font-size: 0.85em;
+      opacity: 0.8;
+      color: #fff;
+      line-height: 1.4;
+      margin-top: 20px;
+    }
+
+    /* Cast Info */
+    .movie-cast {
+      display: flex;
+      margin-top: 10px;
+      height: 50px;
+      margin-left: 5px;
+    }
+
+    .movie-cast img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 20px;
+      border: 2px solid #fff;
+      transition: transform 0.3s ease, border 0.3s ease;
+    }
+
+    .movie-cast img:hover {
+      transform: scale(1.1);
+      border-color: #ffdd57;
+    }
+.series-container {
+  display: flex;
+  flex-wrap: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+body {
+
+  font-family: 'Poppins', sans-serif;
+
+}
+
+
+
+
+    .f-s {
+      margin-top: 10px;
+      border-bottom: 2px solid dimgray;
+    }
+
+    .f-s > h1 {
+      margin-left: 10px;
+    }
+
+    .series-container {
+      display: flex;
+      flex-direction: row; /* Aligns cards horizontally */
+      gap: 20px;      
+      overflow-x: auto; /* Enables horizontal scroll */
+      white-sace: nowrap; /* Prevents wrapping */
+      scroll-behavior: smooth; /* Smooth scrolling */
+      padding: 10px; /* Adds some padding around the container */
+      height: 480px; /* Fixed height for scrolling effect */
+    }
+
+    /* Movie Card Styles */
+    .series-card {
+      position: relative;
+      min-width: 300px; /* Set a minimum width for the cards */
+      height: 450px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+      transition: transform 0.4s ease;
+      background-color: #1A1A1A;
+      flex-shrink: 0; /* Prevents the card from shrinking */
+    }
+
+    .series-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Background Image with Overlay */
+    .series-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      filter: brightness(0.7);
+    }
+
+    .series-card:hover img {
+      transform: scale(1.2);
+      filter: brightness(0.5);
+    }
+
+    /* Gradient overlay effect */
+    .series-overlay {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.8));
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    /* Movie Info Styles */
+    .series-info {
+      position: relative;
+      bottom: 20px;
+      transition: all 0.3s ease;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    .series-card:hover .series-info {
+      opacity: 1;
+      max-height: 100%;
+    }
+
+    /* Movie Title and Details */
+    .series-title {
+      font-size: 1.8em;
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .series-type,
+    .series-streaming {
+      font-size: 0.9em;
+      font-weight: 500;
+      opacity: 0.8;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    /* Streaming Platforms Icons */
+    .series-streaming {
+      display: flex;
+      gap: 10px;
+    }
+
+    .series-streaming img {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.3s ease;
+      filter: grayscale(1);
+    }
+
+    .series-streaming img:hover {
+      transform: scale(1.2);
+      filter: grayscale(0);
+    }
+
+    /* Description */
+    .series-description {
+      font-size: 0.85em;
+      opacity: 0.8;
+      color: #fff;
+      line-height: 1.4;
+      margin-top: 20px;
+    }
+
+    /* Cast Info */
+    .series-cast {
+      display: flex;
+      margin-top: 10px;
+      height: 50px;
+      margin-left: 5px;
+    }
+
+    .series-cast img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 20px;
+      border: 2px solid #fff;
+      transition: transform 0.3s ease, border 0.3s ease;
+    }
+
+    .series-cast img:hover {
+      transform: scale(1.1);
+      border-color: #ffdd57;
+    }
+        .hidden-link-image {
+      width: 300px; /* Adjust as needed */
+      height: auto;
+      display: block;
+    }
+.Game h1 {
+  font-family: lexend;
+  margin-left: 10px;
+}
+
+#game-img-1 {
+  position: relative;
+  width: 350px;
+  height: 200px;
+  margin-right: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+
+  flex-shrink: 0;
+}
+
+#Game-cont {
+  margin-left: 10px;
+  margin-top: 10px;
+  height: 250px;
+  border-bottom: 2px solid dimgray;
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: 100%;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+form {
+  margin-top: 50px;
+  width: 100%;
+  max-width: 400px;
+  height: 400px;
+
+  background-color: #2B2B2B;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 0px;
+  margin-bottom: 30px;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+}
+
+.feedback-type {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+
+.feedback-type label {
+  display: flex;
+  align-items: center;
+  margin: 0 5px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.feedback-type input[type="radio"] {
+  margin-right: 5px;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  margin-top: -10px;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+
+  width: 400px;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.alert {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+}
+
+.feed {
+  width: 100%;
+  display: flex;
+  background-color: #2B2B2B
+}
+
+.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+#u {
+  width: 50%;
+}
+
+.footer {
+  height:300px;
+  background-color: #282c34;
+  color: white;
+  padding: 20px 0px 0px 0px;
+  text-align: center;
+}
+
+.footer-content {
+  margin-bottom: 15px;
+}
+
+.footer h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.footer p {
+  margin-top:170px;
+}
+
+.footer-links {
+  margin-top: 0px;
+}
+
+.footer-links a {
+  color: #61dafb;
+  text-decoration: none;
+  margin: 0 15px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+        #popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Pop-up content styling */
+        #popup {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 300px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Close button styling */
+        .close-btn {
+            display: inline-block;
+            margin-top: 10px;
+            width:100px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+@media screen and (min-width:768px) and (max-width:1023px) and (orientation:portrait){
+#hiddenLinkImage {
+  transform: translateX(425px);
+  margin-top: 40px;
+  width: 350px;
+  height: 350px;
+}
+.landing-text {
+  max-width:400px;
+  margin-top:-350px;
+}
+.landing-page {
+  border-bottom: 2px solid dimgray;
+  padding-bottom: 100px
+}
+#u {
+  margin-top:100px;
+  width: 55%;
+  height:50%;
+}
+
+form {
+margin-left:-100px;
+background-color:transparent;
+}
+button {
+width: 400px;
+}
+
+
+
+}
+@media screen and (min-width:320px) and (max-width:640px) and (orientation:portrait){
+#hiddenLinkImage {
+  transform: translateX(0%);
+  margin:auto;
+  width: 350px;
+  height: 350px;
+}
+
+.landing-text {
+  max-width:100%;
+  margin-top:0px;
+}
+.landing-text>h1 {
+  font-family: lexend;
+  font-size: 35px;
+}
+
+.landing-page {
+  
+  border-bottom: 2px solid dimgray;
+  padding-bottom: 20px
+}
+form {
+  align-content:center;
+  max-width: 90%;
+  background-image:url("/assets/img/game/InfiniteChiefTRANSPARENTholdingReachAR.png");
+  background-size:cover;
+  margin:auto;
+  max-height: 400px;
+  background-color: transparent;
+}
+
+#u {
+   display:none;
+}
+.Call {
+margin-left: -30px;
+}
+.footer p {
+  margin-top:90px;
+}
+button {
+  width: 100%;
+}
+}
+.dongle-regular {
+  font-family: "Dongle", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.lexend-uniquifier {
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
