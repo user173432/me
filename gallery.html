@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Lato:wght@100..900&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: #E5E5E5;
+      padding: 0px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo h1 {
+      font-family: Lexend;
+      margin-top: 0px;
+      margin-left: 4px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav>ul {
+      max-width: 300px;
+      display: flex;
+      margin-top: 0px;
+    }
+
+    nav>ul>li {
+      list-style-type: none;
+      width: 300px;
+    }
+
+
+    nav ul li a {
+      text-decoration: none;
+      color: #3B3B3B;
+      font-family: 'Lexend', sans-serif;
+    }
+
+    .Call {
+      margin-top: 1px;
+      margin-right: 6px;
+    }
+
+    .Call>a {
+      background: #7200FF;
+      padding: 2px 4px;
+      color: #EDEDED;
+      font-weight: 400;
+      font-size: 20px;
+      font-family: Lexend;
+      text-decoration: none;
+    }
+
+    #popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    /* Pop-up content styling */
+    #popup {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      max-width: 300px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .close-btn {
+      margin-top: 10px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      cursor: pointer;
+      display: none;
+    }
+
+    .hamburger input {
+      display: none;
+    }
+
+    .hamburger svg {
+      height: 3em;
+      transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .line {
+      fill: none;
+      stroke: dimgray;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 3;
+      transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .line-top-bottom {
+      stroke-dasharray: 12 63;
+    }
+
+    .hamburger input:checked+svg {
+      transform: rotate(-45deg);
+    }
+
+    .hamburger input:checked+svg .line-top-bottom {
+      stroke-dasharray: 20 300;
+      stroke-dashoffset: -32.42;
+    }
+
+    .dropdown-menu {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      background: #E2E2E2;
+      position: absolute;
+      top: 70px;
+      width: 250px;
+      right: 10px;
+      padding: px 0px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      width: 100px;
+      padding: 15px 0px;
+    }
+
+    .dropdown-menu a {
+      font-family: 'Lexend', sans-serif;
+      text-decoration: none;
+      color: #3B3B3B;
+      border-bottom: 1.5px solid dimgray;
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+      transition: background 0.3s ease;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #5A5A5A;
+      color: white;
+    }
+
+    .dropdown-menu .Call-m a {
+      background: #7200FF;
+      padding: 8px 12px;
+      color: #EDEDED;
+      font-weight: 400;
+      font-size: 18px;
+      border-radius: 4px;
+      margin-left: 10%;
+      margin-top: 10px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s ease;
+    }
+
+    .dropdown-menu .Call-m a:hover {
+      background: #3A0084;
+      color: #FFFFFF;
+    }
+
+    .gallery-section {
+      margin-left: 10px;
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+
+    .album {
+      cursor: pointer;
+      text-align: center;
+      transition: transform 0.3s;
+      width: calc(33.333% - 10px);
+      /* 3 items per row, with gap */
+    }
+
+    .album img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .album:hover {
+      transform: scale(1.05);
+    }
+
+    /* Overlay Styles */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .album-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 90%;
+      max-height: 90%;
+      overflow-y: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-start;
+    }
+
+    .album-content img {
+      width: 32%;
+      height: auto;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s;
+      border-radius: 10px;
+    }
+
+    .album-content img:hover {
+      transform: scale(1.05);
+    }
+
+    button {
+      padding: 10px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 30;
+    }
+
+    /* Lightbox Styles */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 20;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .album {
+        width: calc(100% - 10px);
+        /* 1 item per row */
+      }
+
+      .album-content img {
+        width: 100%;
+        /* 1 item per row */
+      }
+
+      nav ul,
+      .Call {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+    @media (min-width: 783px) {
+      .dropdown-menu {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <h1>My self</h1>
+    </div>
+
+    <!-- Navigation Links for larger screens -->
+    <nav>
+      <ul>
+        <li><a href="/Index.html">Home</a></li>
+        <li><a href="/gallery.html">Gallery</a></li>
+        <li><a href="#" id="project-link">Project</a></li>
+      </ul>
+    </nav>
+    <div class="Call">
+      <a href="https://www.instagram.com/yuvr.ajchouhan/">Follow</a>
+    </div>
+
+
+    <!-- Hamburger Menu for Mobile -->
+    <label class="hamburger">
+      <input type="checkbox" id="menu-toggle">
+      <svg viewBox="0 0 32 32">
+        <path class="line line-top-bottom" d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"></path>
+        <path class="line" d="M7 16 27 16"></path>
+      </svg>
+    </label>
+
+    <!-- Dropdown Menu for Mobile -->
+    <div class="dropdown-menu" id="dropdown-menu">
+      <a href="/Index.html">Home</a>
+      <a href="/gallery.html">Gallery</a>
+      <a href="#" id="project-link-mobile">Project</a>
+      <div class="Call-m">
+        <a href="https://www.instagram.com/yuvr.ajchouhan/">Follow</a>
+      </div>
+    </div>
+    <div id="popup-overlay">
+      <div id="popup">
+        <p>This section will be available soon!</p>
+        <button class="close-btn" onclick="closePopup()">Close</button>
+      </div>
+    </div>
+
+  </header>
+  <div class="gallery-section">
+    <div class="album" onclick="openAlbum('album-nature')">
+      <img src="/wp11829056-free-fire-2023-wallpapers.jpg" alt="Nature Album">
+      <h3>Free fire</h3>
+    </div>
+
+  </div>
+
+  <!-- Overlay for Albums (Hidden by Default) -->
+  <div id="overlay" class="overlay" onclick="closeAlbum()">
+    <div id="album-nature" class="album-content" onclick="event.stopPropagation()">
+      <button onclick="closeAlbum()">Back</button>
+      <!-- Nature Album Images -->
+      <img src="/Screenshot_20241112_111142_Photos.png" alt="Nature Image 1" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20241112_111137_Photos.png" alt="Nature Image 2" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20241112_111148_Photos.png" alt="Nature Image 3" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20241112_111152_Photos.png" alt="Nature Image 4" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20241112_111155_Photos.png" alt="Nature Image 5" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20241112_111225_Photos.png" alt="Nature Image 6" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20241112_111229_Photos.png" alt="Nature Image 6" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20241112_111137_Photos.png" alt="Nature Image 6" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20241112_111119_Photos.png" alt="Nature Image 7" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20241112_110445_Photos.png" alt="Nature Image 8" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20230501-101008_Free Fire MAX.jpg" alt="Nature Image 9" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20230429-100200_Free Fire MAX.jpg" alt="Nature Image 10" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20230314-184852.png" alt="Nature Image 11" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20220711-141435_Free Fire MAX.jpg" alt="Nature Image 12" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20220529-103132_Free Fire MAX.jpg" alt="Nature Image 13" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20220529-103114_Free Fire MAX.jpg" alt="Nature Image 14" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20220527-140128_Free Fire MAX.jpg" alt="Nature Image 15" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20220527-140117_Free Fire MAX.jpg" alt="Nature Image 16" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20220523-111307_Free Fire MAX.jpg" alt="Nature Image 17" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20220513-104355_Free Fire.jpg" alt="Nature Image 18" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20220430-231008_Free Fire.jpg" alt="Nature Image 19" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20220425-153008_Free Fire.jpg" alt="Nature Image 20" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20220331-230709_Free Fire.jpg" alt="Nature Image 21" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20220321-225205_Free Fire.jpg" alt="Nature Image 22" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20220212-221504_Free Fire.jpg" alt="Nature Image 23" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20220205-124012_Free Fire.jpg" alt="Nature Image 24" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20220205-110320_Free Fire.jpg" alt="Nature Image 25" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20220201-221844_Free Fire.jpg" alt="Nature Image 26" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20220108-193723_Free Fire.jpg" alt="Nature Image 27" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20220107-223217_Free Fire.jpg" alt="Nature Image 28" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20220101-093545_Free Fire.jpg" alt="Nature Image 29" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20211202-081119_Free Fire.jpg" alt="Nature Image 30" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20211105-192122_Free Fire.jpg" alt="Nature Image 31" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20211104-065230_Free Fire.jpg" alt="Nature Image 32" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20211102-220425_Free Fire.jpg" alt="Nature Image 33" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20211102-213734_Free Fire.jpg" alt="Nature Image 34" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20211102-211602_Free Fire.jpg" alt="Nature Image 35" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20211102-202947_Free Fire.jpg" alt="Nature Image 36" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20211102-095833_Free Fire.jpg" alt="Nature Image 37" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20211031-140217_Free Fire.jpg" alt="Nature Image 38" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20211030-211858_Free Fire.jpg" alt="Nature Image 39" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20211029-225425_Free Fire.jpg" alt="Nature Image 40" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20211025-201330_Free Fire.jpg" alt="Nature Image 41" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20211024-132111_Free Fire.jpg" alt="Nature Image 42" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20210921-202655_Free Fire.jpg" alt="Nature Image 43" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20210921-202628_Free Fire.jpg" alt="Nature Image 44" onclick="openLightbox(this.src)">
+      <img src="/Screenshot_20210906-135134_Free Fire.jpg" alt="Nature Image 45" onclick="openLightbox(this.src)">
+
+    </div>
+    <div id="album-travel" class="album-content" onclick="event.stopPropagation()">
+      <button onclick="closeAlbum()">Back</button>
+      <!-- Travel Album Images -->
+      <img src="travel1.jpg" alt="Travel Image 1" onclick="openLightbox(this.src)">
+      <img src="travel2.jpg" alt="Travel Image 2" onclick="openLightbox(this.src)">
+      <img src="travel3.jpg" alt="Travel Image 3" onclick="openLightbox(this.src)">
+    </div>
+    <div id="album-projects" class="album-content" onclick="event.stopPropagation()">
+      <button onclick="closeAlbum()">Back</button>
+      <!-- Projects Album Images -->
+      <img src="project1.jpg" alt="Project Image 1" onclick="openLightbox(this.src)">
+      <img src="project2.jpg" alt="Project Image 2" onclick="openLightbox(this.src)">
+    </div>
+  </div>
+
+  <!-- Lightbox for Enlarged Image View -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Enlarged Image">
+  </div>
+
+  <script>
+    // Toggle the dropdown menu based on the hamburger menu state
+    const menuToggle = document.getElementById('menu-toggle');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+
+    menuToggle.addEventListener('change', function() {
+      dropdownMenu.style.display = menuToggle.checked ? 'flex' : 'none';
+    });
+
+    const projectLink = document.getElementById('project-link');
+    const projectLinkMobile = document.getElementById('project-link-mobile');
+    const popupOverlay = document.getElementById('popup-overlay');
+
+    function showPopup() {
+      popupOverlay.style.display = 'flex';
+    }
+
+    function closePopup() {
+      popupOverlay.style.display = 'none';
+    }
+
+    // When the "Project" link is clicked, show the popup
+    projectLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      showPopup();
+    });
+
+    projectLinkMobile.addEventListener('click', (event) => {
+      event.preventDefault();
+      showPopup();
+    });
+
+    function openAlbum(albumId) {
+      const overlay = document.getElementById('overlay');
+      overlay.style.display = 'flex';
+
+      document.querySelectorAll('.album-content').forEach(album => {
+        album.style.display = 'none';
+      });
+      document.getElementById(albumId).style.display = 'flex';
+    }
+
+    function closeAlbum() {
+      document.getElementById('overlay').style.display = 'none';
+    }
+
+    function openLightbox(imgSrc) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = imgSrc;
+      lightbox.style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
+</body>
+
+</html>
