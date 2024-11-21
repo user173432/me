@@ -50,7 +50,7 @@ projectLinkMobile.addEventListener('click', (event) => {
        setTimeout(() => {
          loader.style.display = "none";
          mainContent.style.display = "block";
-       }, 3000); // Adjust delay as needed
+       }, 500); // Adjust delay as needed
      } else {
        // If already visited, skip the loader and show main content directly
        loader.style.display = "none";
