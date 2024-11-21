@@ -361,15 +361,15 @@ projectLinkMobile.addEventListener('click', (event) => {
          }, 3000);
        });
    });
-  document.getElementById("year").textContent = new Date().getFullYear();
-  function showPopup() {
-            document.getElementById('popup-overlay').style.display = 'flex';
-        }
-
-    // Track clicks on the image
-    const image = document.getElementById('hiddenLinkImage');
+  const image = document.getElementById('hiddenLinkImage');
     let clickCount = 0;
-    const secretCode = "1234"; // Set your desired code here
+
+    // Define secret codes and corresponding URLs
+    const secretCodes = {
+      "1234": "https://www.google.co.in/",
+      "5678": "https://www.example.com/",
+      "91011": "https://www.anotherexample.com/"
+    };
 
     image.addEventListener('click', () => {
       clickCount++;
@@ -379,8 +379,8 @@ projectLinkMobile.addEventListener('click', (event) => {
         const userCode = prompt("Enter the access code to proceed:");
 
         // Verify the entered code
-        if (userCode === secretCode) {
-          window.location.href = 'https://www.google.co.in/'; // Replace with your desired link
+        if (secretCodes[userCode]) {
+          window.location.href = secretCodes[userCode]; // Redirect to the corresponding link
         } else {
           alert("Incorrect code. Please try again.");
           clickCount = 0; // Reset click count if code is incorrect
