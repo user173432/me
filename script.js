@@ -367,8 +367,8 @@ projectLinkMobile.addEventListener('click', (event) => {
     // Define secret codes and corresponding URLs
     const secretCodes = {
       "1234": "https://www.google.co.in/",
-      "5678": "https://www.example.com/",
-      "91011": "https://www.anotherexample.com/"
+      "School": "school.html",
+      "school": "school.html"
     };
 
     image.addEventListener('click', () => {
